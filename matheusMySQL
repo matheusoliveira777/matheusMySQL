@@ -1,0 +1,31 @@
+Create database Cadastro_cliente;
+use Cadastro_cliente;
+
+CREATE TABLE IF NOT EXISTS clientes (
+id BigInt not null auto_increment primary key,
+nome varchar(30) not null,
+nascimento date,
+sexo enum('M' , 'F'), 
+peso decimal(5,2),
+nacionalidade varchar(20) default 'brasil'
+)default charset = utf8mb4;
+
+create table dados(
+id bigint not null auto_increment primary key,
+nome varchar(30),
+sexo enum('M' , 'F'),
+preco_produto decimal(8,2),
+quantidade int, 
+nascimento date,
+cadastro datetime,
+ativo boolean, 
+descricao text,
+estado char(2)
+);
+
+insert into dados
+(id, nome, sexo, preco_produto, quantidade, nascimento, cadastro, ativo, descricao, estado)
+values
+(default, 'Matheus', 'M', 1.99, 20, '2007-07-07', '2025-07-30 10:56:50', true, 'novo', 'PR');
+
+select*from dados;
